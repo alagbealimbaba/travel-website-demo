@@ -1,0 +1,82 @@
+.custom-checkbox {
+    appearance: none; /* Remove default styles */
+    width: 18px;
+    height: 18px;
+    border: 1px solid #E4E4E4; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    margin-right: 8px; /* Gap between checkbox and label text */
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .custom-checkbox:checked {
+    background-color: #4A4A4A; /* Checkbox fill color when checked */
+    border-color: #4A4A4A;
+  }
+  
+  .custom-checkbox:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 3px;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Gap between checkbox and text */
+  }
+  
+  /* Grid container styles */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-gap: 20px; /* Space between items */
+    position: relative;
+  }
+  
+  .grid-item {
+    background-color: #ddd; /* Placeholder background color */
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Didot', serif; /* Use Didot font */
+    font-size: 24px; /* Font size */
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    position: relative; /* Allows for positioning the checkmark */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .grid-item.wide {
+    grid-column: span 2; /* Span 2 columns */
+    height: 250px;
+  }
+  
+  .grid-item.selected {
+    background-color: #FF5200B2; /* Highlight color when selected */
+    color: white; /* Text color when selected */
+    position: relative;
+    z-index: 999; /* To allow for overlay positioning */
+  }
+  
+  /* Checkmark when grid item is selected */
+  .grid-item.selected::after {
+    content: '';
+    background: url('../public/checkmark.png') no-repeat center center; /* Replace with your image */
+    background-size: contain; /* Adjust image to fit */
+    position: absolute; /* Center over the text */
+    width: 28px; /* Adjust image width as needed */
+    height: 20px;
+    top: 35%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* Center the checkmark */
+    pointer-events: none; /* Allow clicks to pass through checkmark */
+  }
+  
+  
